@@ -1,16 +1,9 @@
-import os
 import cv2
-import csv
-import yaml
 import numpy as np
 import mediapipe as mp
-import subprocess
 import torch
 import pyautogui
-import collections
-import tkinter as tk
 from torch import nn
-from tkinter import messagebox
 from Label_Dict import label_dict_from_config_file
 
 class HandLandmarksDetector():
@@ -90,7 +83,7 @@ class LightGesture:
         self.classifier.eval()
 
         self.prediction_buffer = []
-        self.buffer_size = 10
+        self.buffer_size = 12
 
         self.turn_off = False
         self.scroll_down = False
