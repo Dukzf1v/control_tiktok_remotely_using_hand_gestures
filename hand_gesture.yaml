@@ -1,0 +1,6 @@
+gestures:
+  0: "turn_off"
+  1: "scroll_down"
+  2: "scroll_up"
+  3: "like"
+  4: "reset"
