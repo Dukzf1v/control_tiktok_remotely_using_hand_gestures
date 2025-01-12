@@ -3,6 +3,7 @@ import numpy as np
 import mediapipe as mp
 import torch
 import pyautogui
+import time
 from torch import nn
 from Label_Dict import label_dict_from_config_file
 
@@ -118,14 +119,27 @@ class LightGesture:
                         if self.check_stable_gesture(self.status_text):
                             if self.status_text == "turn_off" and not self.turn_off:
                                 pyautogui.hotkey('ctrl','w')
+                                self.turn_off = True
                             elif self.status_text == "scroll_down" and not self.scroll_down:
                                 pyautogui.press('down')
+                                self.scroll_down = True
+                                time.sleep(0.5)
+                                self.scroll_down = False
                             elif self.status_text == "scroll_up" and not self.scroll_up:
                                 pyautogui.press('up')
+                                self.scroll_up = True
+                                time.sleep(0.5)
+                                self.scroll_up = False
                             elif self.status_text == "like" and not self.like:
                                 pyautogui.press("L") 
+                                self.like = True
+                                time.sleep(0.5)
+                                self.like = False
                             elif self.status_text == "reset" and not self.reset:
                                 pyautogui.press("f5")
+                                self.reset = True
+                                time.sleep(0.5)
+                                self.reset = False
             cv2.imshow('Camera',frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
